@@ -56,13 +56,16 @@
         <label for="group-4"><span class="fa fa-angle-right"></span>Usuarios</label>
         <ul class="group-list">
           <li><a href="RegistrarUsuario.jsp">Registrar Usuarios</a></li>
+          <li><a href="VerUsuarios.jsp">Consultar Usuarios</a></li>
         </ul>
       </li>
       <li>
-        <input id="group-4" type="checkbox" hidden />
-        <label for="group-4"><span class="fa fa-angle-right"></span>Reservaciones</label>
+        <input id="group-5" type="checkbox" hidden />
+        <label for="group-5"><span class="fa fa-angle-right"></span>Reservaciones</label>
         <ul class="group-list">
           <li><a href="RegistrarReservaSala.jsp">Realizar Reservaciones</a></li>
+          <li><a href="VerReservaciones.jsp">Revisar las Reservaciones</a></li>
+          <li><a href="CancelarReservacion.jsp">Cancelar Reservaci�n</a></li>
         </ul>
       </li>
 	</div>
