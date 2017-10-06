@@ -49,6 +49,7 @@
         <label for="group-3"><span class="fa fa-angle-right"></span>Salas</label>
         <ul class="group-list">
           <li><a href="RegistrarSala.jsp">Registrar Salas</a></li>
+          <li><a href="VerSalas.jsp">Consultar Salas</a></li>
         </ul>
       </li>
       <li>
@@ -65,7 +66,7 @@
         <ul class="group-list">
           <li><a href="RegistrarReservaSala.jsp">Realizar Reservaciones</a></li>
           <li><a href="VerReservaciones.jsp">Revisar las Reservaciones</a></li>
-          <li><a href="CancelarReservacion.jsp">Cancelar Reservaciï¿½n</a></li>
+          <li><a href="CancelarReservacion.jsp">Cancelar Reservación</a></li>
         </ul>
       </li>
 	</div>
