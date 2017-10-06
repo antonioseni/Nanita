@@ -41,7 +41,7 @@
         <label for="group-2"><span class="fa fa-angle-right"></span>Calificacion de Salas</label>
         <ul class="group-list">
           <li><a href="CalificarSala.jsp">Calificar Sala</a></li>
-          <li><a href="CalificarSala.jsp">Consultar Calificaciones de salas</a></li>
+          <li><a href="ConsultarCalifiaciones.jsp">Consultar Calificaciones de salas</a></li>
         </ul>
       </li>
       <li>
