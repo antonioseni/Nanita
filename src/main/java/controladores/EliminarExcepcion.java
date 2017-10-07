@@ -14,23 +14,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import logicaDeDatos.ConexionDB;
-
 /**
- * Servlet implementation class EditarExcepciones
+ * Servlet implementation class EliminarExcepcion
  */
-@WebServlet("/EditarExcepciones")
-public class EditarExcepciones extends HttpServlet {
+@WebServlet("/EliminarExcepcion")
+public class EliminarExcepcion extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	private Date inicio;
 	private Date fin;
-	private String descripcion;
-	private int encargado;
-       
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public EditarExcepciones() {
+    public EliminarExcepcion() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -44,29 +41,23 @@ public class EditarExcepciones extends HttpServlet {
 		response.setContentType("text/html");
 		
 		try {
-			
 			inicio = convertir(request.getParameter("inicio"));
-			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		try {
-			
 			fin = convertir(request.getParameter("fin"));
-			
 		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		encargado=Integer.parseInt(request.getParameter("capacidad"));
-		descripcion = request.getParameter("descripcion");
 		
-		if(inicio.equals("")||fin.equals("")||descripcion.equals("")||encargado==0){
+		if(inicio.equals("")||fin.equals("")){
 			out.println("<script type=\"text/javascript\">");
 			out.println("alert('No deje elementos en blanco:');");
 			
-			out.println("location='EditarExcepcion.jsp';");
+			out.println("location='EliminarExcepcion.jsp';");
 			out.println("</script>");
 			
 		}
@@ -79,12 +70,12 @@ public class EditarExcepciones extends HttpServlet {
 			*/
 			
 			ConexionDB conexion=ConexionDB.obtenerConexion();
-			conexion.getQuery("CALL editarExcepcion('"+inicio+"','"+fin+"','"+descripcion+"', "+encargado+")");
+			conexion.getQuery("CALL editarExcepcion('"+inicio+"','"+fin+"')");
 
 			
 			out.println("<script type=\"text/javascript\">");
 			out.println("confirm('Se registrará un nueva sala de reunión');");
-			out.println("location='EditarExcepcion.jsp';");
+			out.println("location='EliminarExcepcion.jsp';");
 			out.println("</script>");
 		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
