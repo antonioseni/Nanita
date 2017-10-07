@@ -62,7 +62,8 @@
       </li>
       <li>
         <input id="group-5" type="checkbox" hidden />
-        <label for="group-5"><span class="fa fa-angle-right"></span>Reservaciones</label>
+        <
+        label for="group-5"><span class="fa fa-angle-right"></span>Reservaciones</label>
         <ul class="group-list">
           <li><a href="RegistrarReservaSala.jsp">Realizar Reservaciones</a></li>
           <li><a href="VerReservaciones.jsp">Revisar las Reservaciones</a></li>

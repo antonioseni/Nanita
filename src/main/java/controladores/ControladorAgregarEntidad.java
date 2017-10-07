@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import logicaDeDatos.ConexionDB;
 
 import java.sql.*;
 
@@ -65,8 +65,8 @@ public class ControladorAgregarEntidad extends HttpServlet {
 				
 				
 				
-			//	ConexionBD conexion= new ConexionBD();
-				//ResultSet resultado=conexion.getQuery("CALL agregarEntidad('"+nombreEntidad+"','"+descripcionEntidad+"','"+tipoEntidad+"')");
+				ConexionDB conexion= ConexionDB.obtenerConexion();
+				ResultSet resultado=conexion.getQuery("CALL agregarEntidad('"+nombreEntidad+"','"+descripcionEntidad+"','"+tipoEntidad+"')");
 							
 				
 				out.println("<script type=\"text/javascript\">");

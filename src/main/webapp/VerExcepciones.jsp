@@ -29,7 +29,7 @@
 							<input type="text" name="idEncargado" id="idEncargado" value="" placeholder="0001" />
 						</div>
 						<ul class="actions">
-							<li><input type="submit" value="Calificar" class="special"/></li>
+							<li><input type="submit" value="Consultar" class="special"/></li>
 						</ul>
 					</form>
 				</header>
