@@ -3,31 +3,28 @@ package controladores;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.sql.ResultSet;
-import java.util.Random;
 
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import logicaDeDatos.ConexionDB;
 
 /**
- * Servlet implementation class CalificarSala
+ * Servlet implementation class VerExcepciones
  */
-public class CalificarSala extends HttpServlet {
+@WebServlet("/VerExcepciones")
+public class VerExcepciones extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	private int idCalificacion;
-	private String comentario;
-	private int calificacion;
-	private String sala;
-	
+	private int idEncargado;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CalificarSala() {
+    public VerExcepciones() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -39,32 +36,32 @@ public class CalificarSala extends HttpServlet {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		response.setContentType("text/html");
-		idCalificacion = generarCodigo();
-		comentario = request.getParameter("comentario");
-		calificacion=Integer.parseInt(request.getParameter("calificacion"));
-		sala=request.getParameter("sala");
+		idEncargado = Integer.parseInt(request.getParameter("idEncargado"));
 		
-		if(idCalificacion==0 || comentario.equals("")||calificacion==0 || sala.equals("")){
+		
+		if(idEncargado==0){
 			out.println("<script type=\"text/javascript\">");
-			out.println("alert('Error, se deben completar los campos del registro');");
-			out.println("location='CalificarSala.jsp';");
+			out.println("alert('Error, se deben completar todos los campos');");
+			out.println("location='VerExcepciones.jsp';");
 			out.println("</script>");
 			
 		}
 		else{
-			/*
-			Curso curso = new Curso(nombreEntidad, descripcionEntidad);
 			
-			System.out.println(curso.getCodigo());
-			System.out.println(curso.getDescripcion());
+			//Curso curso = new Curso(nombreEntidad, descripcionEntidad);
 			
-			ConexionBD conexion= new ConexionBD();
-			conexion.getConexion();
-			ResultSet resultado=conexion.getQuery("CALL calificarSala("+idCalificacion+", '"+comentario+"', "+calificacion+", '"+sala+"');");
-			*/
+			//System.out.println(curso.getCodigo());
+			//System.out.println(curso.getDescripcion());
+			
+			
+			
+			ConexionDB conexion=ConexionDB.obtenerConexion();
+			ResultSet resultado=conexion.getQuery("CALL verExepciones("+idEncargado+");");
+						
+			
 			out.println("<script type=\"text/javascript\">");
-			out.println("confirm('Gracias por su evaluación');");
-			out.println("location='CalificarSala.jsp';");
+			out.println("confirm('Se registrara un nueva entidad');");
+			out.println("location='VerExcepciones.jsp';");
 			out.println("</script>");
 		}
 		response.getWriter().append("Served at: ").append(request.getContextPath());
@@ -76,11 +73,6 @@ public class CalificarSala extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-	}
-	
-	protected int generarCodigo(){
-		int codigo = (int) (Math.random() * 9999) + 1;
-		return codigo;
 	}
 
 }
